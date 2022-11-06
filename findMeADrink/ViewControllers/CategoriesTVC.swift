@@ -12,10 +12,18 @@ class CategoriesTVC: UITableViewController {
     // MARK: - PROPERTIES
     var categories: [String] = []
     
+    
     // MARK: - LIFECYCLES
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchCategories()
+        tableView.separatorStyle = .none
+//        tableView.backgroundColor = .
+        let categoryNames = UserDefaults.standard.object(forKey: "savedCategories") as? [String]
+        if let savedCategories = categoryNames,
+           savedCategories.count > 0 {
+            categories = savedCategories
+        }
     }
     
     // MARK: - HELPER METHODS
@@ -25,6 +33,7 @@ class CategoriesTVC: UITableViewController {
                 switch result {
                 case .success(let drinkCategories):
                     self.categories = drinkCategories
+                    self.saveCategories()
                     UIView.transition(with: self.tableView,
                                               duration: 0.2,
                                               options: .transitionCrossDissolve,
@@ -38,24 +47,39 @@ class CategoriesTVC: UITableViewController {
             }
         }
     }
+    func saveCategories() {
+        UserDefaults.standard.set(categories, forKey: "savedCategories")
+    }
 
     // MARK: - TABLE VIEW DATA SOURCE
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+            return categories.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell else { return UITableViewCell() }
 
         let category = categories[indexPath.row]
         
-        var content = cell.defaultContentConfiguration()
-        
-        content.text = category
-        
-        cell.contentConfiguration = content
+        cell.category = category
         
         return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+//
+//        let category = categories[indexPath.row]
+//
+//        var content = cell.defaultContentConfiguration()
+//
+//        content.text = category
+//
+//        cell.contentConfiguration = content
+//
+//        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height = tableView.safeAreaLayoutGuide.layoutFrame.size.height
+            return height/CGFloat(categories.count)
     }
 
     // MARK: - NAVIGATION

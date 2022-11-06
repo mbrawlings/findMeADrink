@@ -121,4 +121,37 @@ class CocktailAPIController {
         }.resume()
     }
     
+    //https://the-cocktail-db.p.rapidapi.com/filter.php?i={{INGREDIENT}}
+    static func searchBy(ingredient: String, completion: @escaping (Result<[FilteredCategories.Drink], NetworkError>) -> Void) {
+        guard let baseURL else { return completion(.failure(.invalidURL)) }
+        let filterURL = baseURL.appendingPathComponent(filterComponent)
+        
+        var components = URLComponents(url: filterURL, resolvingAgainstBaseURL: true)
+        let ingredientQuery = URLQueryItem(name: ingredientKey, value: ingredient)
+        components?.queryItems = [ingredientQuery]
+        
+        guard let finalURL = components?.url else { return completion(.failure(.invalidURL)) }
+        print(finalURL)
+        
+        var request = URLRequest(url: finalURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = Constants.headers
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if let error = error {
+                return completion(.failure(.thrownError(error)))
+            }
+            guard let data else { return completion(.failure(.badData)) }
+            
+            do {
+                let topLevelObject = try JSONDecoder().decode(FilteredCategories.self, from: data)
+                let results = topLevelObject.drinks
+                return completion(.success(results))
+            } catch {
+                completion(.failure(.unableToDecode))
+            }
+        }.resume()
+    }
+    
+    
 } //end of controller

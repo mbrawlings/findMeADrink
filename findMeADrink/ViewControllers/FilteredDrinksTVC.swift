@@ -24,6 +24,19 @@ class FilteredDrinksTVC: UITableViewController {
         searchBar.delegate = self
         fetchFilteredDrinks()
         setupView()
+        guard let category else { return }
+        // read/get data
+        if let data = UserDefaults.standard.data(forKey: "\(category)SavedDrinks") {
+            do {
+                let savedDrinks = try JSONDecoder().decode([FilteredCategories.Drink].self, from: data)
+                print(savedDrinks)
+                filteredDrinks = savedDrinks
+            } catch {
+                print(error)
+                print(error.localizedDescription)
+                print("Could not decode UD data")
+            }
+        }
     }
 
     //MARK: - HELPER METHODS
@@ -34,6 +47,7 @@ class FilteredDrinksTVC: UITableViewController {
                 switch result {
                 case .success(let drinks):
                     self.filteredDrinks = drinks
+                    self.saveDrinks()
                     UIView.transition(with: self.tableView,
                                               duration: 0.2,
                                               options: .transitionCrossDissolve,
@@ -46,6 +60,18 @@ class FilteredDrinksTVC: UITableViewController {
                     print(error.localizedDescription)
                 }
             }
+        }
+    }
+    func saveDrinks() {
+        guard let category else { return }
+        // write/set the data
+        do {
+            let drinkData = try JSONEncoder().encode(filteredDrinks)
+            UserDefaults.standard.set(drinkData, forKey: "\(category)SavedDrinks")
+        } catch {
+            print(error)
+            print(error.localizedDescription)
+            print("Unable to Encode Array of Drink")
         }
     }
     func setupView() {

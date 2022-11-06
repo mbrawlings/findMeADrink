@@ -19,10 +19,10 @@ struct Categories: Decodable {
     } // end of drink
 } // end of categories
 
-struct FilteredCategories: Decodable {
+struct FilteredCategories: Codable {
     let drinks: [Drink]
 
-    struct Drink: Decodable {
+    struct Drink: Codable {
         let drinkName: String
         let thumbnailJpg: String?
         let drinkID: String
