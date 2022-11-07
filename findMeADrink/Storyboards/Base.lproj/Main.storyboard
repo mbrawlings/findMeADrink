@@ -112,20 +112,20 @@
                                             <rect key="frame" x="8" y="8" width="174" height="174"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APw-he-QSw">
-                                                    <rect key="frame" x="4" y="153" width="166" height="21"/>
+                                                    <rect key="frame" x="4" y="151" width="166" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAJ-lo-Je7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="174" height="152"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="174" height="149"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="APw-he-QSw" secondAttribute="bottom" id="5L9-bM-20R"/>
+                                                <constraint firstAttribute="bottom" secondItem="APw-he-QSw" secondAttribute="bottom" constant="2" id="5L9-bM-20R"/>
                                                 <constraint firstAttribute="trailing" secondItem="bAJ-lo-Je7" secondAttribute="trailing" id="5Zf-Zf-uux"/>
-                                                <constraint firstItem="APw-he-QSw" firstAttribute="top" secondItem="bAJ-lo-Je7" secondAttribute="bottom" constant="1" id="BVK-lZ-hLy"/>
+                                                <constraint firstItem="APw-he-QSw" firstAttribute="top" secondItem="bAJ-lo-Je7" secondAttribute="bottom" constant="2" id="BVK-lZ-hLy"/>
                                                 <constraint firstItem="bAJ-lo-Je7" firstAttribute="top" secondItem="2rB-Mm-6n1" secondAttribute="top" id="NZi-j7-Rc3"/>
                                                 <constraint firstAttribute="trailing" secondItem="APw-he-QSw" secondAttribute="trailing" constant="4" id="XPv-aW-MAz"/>
                                                 <constraint firstItem="APw-he-QSw" firstAttribute="leading" secondItem="2rB-Mm-6n1" secondAttribute="leading" constant="4" id="ewI-A9-Ccm"/>

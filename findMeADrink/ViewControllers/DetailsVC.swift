@@ -7,8 +7,6 @@
 
 import UIKit
 
-//
-
 class DetailsVC: UIViewController {
     
     //MARK: - PROPERTIES
@@ -73,6 +71,14 @@ class DetailsVC: UIViewController {
                     }
             }
         }
+        drinkImage.layer.borderWidth = 1
+        drinkImage.layer.cornerRadius = 10
+        
+        ingredientsTableView.layer.borderWidth = 1
+        ingredientsTableView.layer.cornerRadius = 10
+        
+        instructionsLabel.layer.borderWidth = 1
+        instructionsLabel.layer.cornerRadius = 10
     }
     
     func organizeData() {
@@ -82,16 +88,6 @@ class DetailsVC: UIViewController {
         let rawMeasurements = [ details.glass, details.measure1, details.measure2, details.measure3, details.measure4, details.measure5, details.measure6, details.measure7, details.measure8, details.measure9, details.measure10, details.measure11, details.measure12, details.measure13, details.measure14, details.measure15 ]
         measurements = rawMeasurements.compactMap { ($0) }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension DetailsVC: UITableViewDelegate, UITableViewDataSource {
@@ -129,6 +125,4 @@ extension DetailsVC: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    
 }

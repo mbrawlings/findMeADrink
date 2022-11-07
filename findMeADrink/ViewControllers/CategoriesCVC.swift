@@ -13,10 +13,11 @@ class CategoriesCVC: UICollectionViewController {
     
     //MARK: - PROPERTIES
     var categories: [String] = []
+    private let spacing: CGFloat = 8.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setCollectionViewLayout()
         fetchCategories()
         let categoryNames = UserDefaults.standard.object(forKey: "savedCategories") as? [String]
         if let savedCategories = categoryNames,
@@ -26,6 +27,14 @@ class CategoriesCVC: UICollectionViewController {
     }
     
     //MARK: - HELPER METHODS
+    func setCollectionViewLayout() {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        self.collectionView?.collectionViewLayout = layout
+    }
+    
     func fetchCategories() {
         CocktailAPIController.fetchCategories { result in
             DispatchQueue.main.async {
@@ -46,9 +55,11 @@ class CategoriesCVC: UICollectionViewController {
             }
         }
     }
+    
     func saveCategories() {
         UserDefaults.standard.set(categories, forKey: "savedCategories")
     }
+    
     // MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFilteredDrinks" {
@@ -76,48 +87,23 @@ class CategoriesCVC: UICollectionViewController {
             
             cell = categoryCell
         }
-    
         return cell
     }
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
 
     //MARK: - COLLECTION FLOW LAYOUT
 extension CategoriesCVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        if indexPath.row % 2 == 0 {
-//
-//        }
-        return CGSize(width: (UIScreen.main.bounds.width/2)-8, height: (UIScreen.main.bounds.width/2)-8)
+        let numberOfItemsPerRow: CGFloat = 2
+        let spacingBetweenCells: CGFloat = 8
+        
+        let totalSpacing = (2 * self.spacing) + ((numberOfItemsPerRow - 1) * spacingBetweenCells) //Amount of total spacing in a row
+        
+        if let collection = self.collectionView {
+            let width = (collection.bounds.width - totalSpacing)/numberOfItemsPerRow
+            return CGSize(width: width, height: width)
+        }else{
+            return CGSize(width: 0, height: 0)
+        }
     }
 }

@@ -27,10 +27,11 @@ class CategoryCollectionCell: UICollectionViewCell {
         categoryLabel.text = category
         
         view.layer.cornerRadius = 10
-        categoryImage.layer.cornerRadius = 10
         view.backgroundColor = UIColor.systemGray6
+        view.layer.borderWidth = 1
+        
+        categoryImage.layer.cornerRadius = 10
         categoryImage.image = UIImage(named: "\(category.lowercased().replacingOccurrences(of: "[/ ^+<>]", with: "", options: .regularExpression))")
         categoryImage.layer.cornerRadius = 10
-//        categoryImage.clipsToBounds = true
     }
 }
