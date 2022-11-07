@@ -18,7 +18,6 @@ class CategoriesTVC: UITableViewController {
         super.viewDidLoad()
         fetchCategories()
         tableView.separatorStyle = .none
-//        tableView.backgroundColor = .
         let categoryNames = UserDefaults.standard.object(forKey: "savedCategories") as? [String]
         if let savedCategories = categoryNames,
            savedCategories.count > 0 {

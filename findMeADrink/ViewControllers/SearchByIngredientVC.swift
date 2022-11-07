@@ -13,9 +13,8 @@ class SearchByIngredientVC: UIViewController {
     var searchResults: [FilteredCategories.Drink]?
     
     //MARK: - OUTLETS
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     //MARK: - LIFECYCLES
@@ -23,14 +22,9 @@ class SearchByIngredientVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
+        searchBar.becomeFirstResponder()
     }
-    
-    //MARK: - ACTION
-    @IBAction func searchButtonPressed(_ sender: UIButton) {
-        guard let searchIngredient = searchTextField.text else { return }
-        searchBy(ingredient: searchIngredient)
-    }
-    
     
     //MARK: - HELPER FUNCTIONS
     func searchBy(ingredient: String) {
@@ -41,6 +35,7 @@ class SearchByIngredientVC: UIViewController {
                     self.searchResults = results
                     self.tableView.reloadData()
                 case .failure(let error):
+                    print("Tell the user that their search was invalid")
                     print(error)
                     print(error.localizedDescription)
                 }
@@ -63,7 +58,7 @@ class SearchByIngredientVC: UIViewController {
     }
 }
 
-    //MARK: - TABLE VIEW 
+    //MARK: - TABLE VIEW
 extension SearchByIngredientVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         searchResults?.count ?? 0
@@ -82,6 +77,13 @@ extension SearchByIngredientVC: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    
+}
+
+    //MARK: - SEARCH BAR DELEGATE
+extension SearchByIngredientVC: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchIngredient = searchBar.text else { return }
+        searchBy(ingredient: searchIngredient)
+        searchBar.resignFirstResponder()
+    }
 }

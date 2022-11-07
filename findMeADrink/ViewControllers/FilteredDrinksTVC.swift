@@ -132,6 +132,7 @@ class FilteredDrinksTVC: UITableViewController {
     }
 }
 
+    //MARK: - SEARCH BAR DELEGATE
 extension FilteredDrinksTVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         isSearching = true

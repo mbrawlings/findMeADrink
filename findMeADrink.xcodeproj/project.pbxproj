@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0E129FD129182A6000C3096C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E129FD029182A6000C3096C /* CategoryCell.swift */; };
 		0E129FD3291861CF00C3096C /* SearchByIngredientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E129FD2291861CF00C3096C /* SearchByIngredientVC.swift */; };
+		0E129FD529186AE600C3096C /* CategoriesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E129FD429186AE600C3096C /* CategoriesCVC.swift */; };
+		0E129FD729186BEF00C3096C /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E129FD629186BEF00C3096C /* CategoryCollectionCell.swift */; };
 		0E6FC1B42912EAC400818747 /* FilteredDrinksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FC1B32912EAC400818747 /* FilteredDrinksTVC.swift */; };
 		0E6FC1B62912FC5C00818747 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FC1B52912FC5C00818747 /* DetailsVC.swift */; };
 		0ECE0A342911D9D800DDBE6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE0A332911D9D800DDBE6A /* AppDelegate.swift */; };
@@ -26,6 +28,8 @@
 /* Begin PBXFileReference section */
 		0E129FD029182A6000C3096C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		0E129FD2291861CF00C3096C /* SearchByIngredientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByIngredientVC.swift; sourceTree = "<group>"; };
+		0E129FD429186AE600C3096C /* CategoriesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCVC.swift; sourceTree = "<group>"; };
+		0E129FD629186BEF00C3096C /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 		0E6FC1B32912EAC400818747 /* FilteredDrinksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredDrinksTVC.swift; sourceTree = "<group>"; };
 		0E6FC1B52912FC5C00818747 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		0ECE0A302911D9D700DDBE6A /* findMeADrink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = findMeADrink.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				0E129FD029182A6000C3096C /* CategoryCell.swift */,
+				0E129FD629186BEF00C3096C /* CategoryCollectionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 				0E6FC1B32912EAC400818747 /* FilteredDrinksTVC.swift */,
 				0E6FC1B52912FC5C00818747 /* DetailsVC.swift */,
 				0E129FD2291861CF00C3096C /* SearchByIngredientVC.swift */,
+				0E129FD429186AE600C3096C /* CategoriesCVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -218,9 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E129FD529186AE600C3096C /* CategoriesCVC.swift in Sources */,
 				0ECE0A4D2911DA8D00DDBE6A /* CocktailAPI.swift in Sources */,
 				0E6FC1B42912EAC400818747 /* FilteredDrinksTVC.swift in Sources */,
 				0ECE0A342911D9D800DDBE6A /* AppDelegate.swift in Sources */,
+				0E129FD729186BEF00C3096C /* CategoryCollectionCell.swift in Sources */,
 				0ECE0A4F2911DA9800DDBE6A /* CocktailAPIController.swift in Sources */,
 				0E6FC1B62912FC5C00818747 /* DetailsVC.swift in Sources */,
 				0E129FD3291861CF00C3096C /* SearchByIngredientVC.swift in Sources */,
