@@ -29,7 +29,6 @@ class FilteredDrinksTVC: UITableViewController {
         if let data = UserDefaults.standard.data(forKey: "\(category)SavedDrinks") {
             do {
                 let savedDrinks = try JSONDecoder().decode([FilteredCategories.Drink].self, from: data)
-                print(savedDrinks)
                 filteredDrinks = savedDrinks
             } catch {
                 print(error)
@@ -55,7 +54,6 @@ class FilteredDrinksTVC: UITableViewController {
                                                 self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
                                               },
                                               completion: nil)
-//                    self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -101,20 +99,12 @@ class FilteredDrinksTVC: UITableViewController {
         }
         
         var content = cell.defaultContentConfiguration()
+        
         guard let drink else { return UITableViewCell() }
         content.text = drink.drinkName
+        
         cell.contentConfiguration = content
         
-//        let imageUrl = URL(string: drink.thumbnailJpg)
-//        DispatchQueue.global().async {
-//            let imageData = try? Data(contentsOf: imageUrl!)
-//            DispatchQueue.main.async {
-//                guard let data = imageData else { return }
-//                content.image = UIImage(data: data)
-//                content.imageProperties.maximumSize = CGSize(width: 50, height: 50)
-//                tableView.reloadData()
-//            }
-//        }
         return cell
     }
 

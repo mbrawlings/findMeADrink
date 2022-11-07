@@ -66,7 +66,6 @@ class CategoriesCVC: UICollectionViewController {
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first,
                   let destination = segue.destination as? FilteredDrinksTVC
             else { return }
-            print(indexPath)
             let categoryToSend = categories[indexPath.row]
             destination.category = categoryToSend
         }

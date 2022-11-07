@@ -20,7 +20,6 @@ class CocktailAPIController {
     static let idKey = "i"
     
     static func fetchCategories(completion: @escaping (Result<[String],NetworkError>) -> Void) {
-        // STEP 1 - build url
         guard let finalURL = URL(string: "https://the-cocktail-db.p.rapidapi.com/list.php?c=list") else {
             completion(.failure(.invalidURL))
             return
@@ -28,7 +27,6 @@ class CocktailAPIController {
         var request = URLRequest(url: finalURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = Constants.headers
-        print(finalURL)
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
@@ -38,7 +36,6 @@ class CocktailAPIController {
                 completion(.failure(.badData))
                 return
             }
-//            if let s = String(data: data, encoding: .utf8) { print(s) }
 
             do {
                 let topLevelObject = try JSONDecoder().decode(Categories.self, from: data)
@@ -79,8 +76,6 @@ class CocktailAPIController {
             do {
                 let topLevelObject = try JSONDecoder().decode(FilteredCategories.self, from: data)
                 let drinks = topLevelObject.drinks
-//                var filteredDrinks: [FilteredCategories.Drink] = []
-//                filteredDrinks.append(contentsOf: drinks.map { ($0) })
                 return completion(.success(drinks))
             } catch {
                 completion(.failure(.unableToDecode))
@@ -131,7 +126,6 @@ class CocktailAPIController {
         components?.queryItems = [ingredientQuery]
         
         guard let finalURL = components?.url else { return completion(.failure(.invalidURL)) }
-        print(finalURL)
         
         var request = URLRequest(url: finalURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
@@ -152,6 +146,4 @@ class CocktailAPIController {
             }
         }.resume()
     }
-    
-    
 } //end of controller

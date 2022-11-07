@@ -16,7 +16,6 @@ class SearchByIngredientVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
         super.viewDidLoad()
