@@ -27,6 +27,7 @@
 		0E129FD2291861CF00C3096C /* SearchByIngredientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByIngredientVC.swift; sourceTree = "<group>"; };
 		0E129FD429186AE600C3096C /* CategoriesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCVC.swift; sourceTree = "<group>"; };
 		0E129FD629186BEF00C3096C /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
+		0E12A000291AD3B100C3096C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0E6FC1B32912EAC400818747 /* FilteredDrinksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredDrinksTVC.swift; sourceTree = "<group>"; };
 		0E6FC1B52912FC5C00818747 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		0ECE0A302911D9D700DDBE6A /* findMeADrink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = findMeADrink.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +65,7 @@
 		0ECE0A272911D9D700DDBE6A = {
 			isa = PBXGroup;
 			children = (
+				0E12A000291AD3B100C3096C /* README.md */,
 				0ECE0A322911D9D800DDBE6A /* findMeADrink */,
 				0ECE0A312911D9D700DDBE6A /* Products */,
 			);
