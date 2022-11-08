@@ -28,7 +28,7 @@ class CategoryCollectionCell: UICollectionViewCell {
         
         view.layer.cornerRadius = 10
         view.backgroundColor = UIColor.systemGray6
-        view.layer.borderWidth = 1
+//        view.layer.borderWidth = 1
         
         categoryImage.layer.cornerRadius = 10
         categoryImage.image = UIImage(named: "\(category.lowercased().replacingOccurrences(of: "[/ ^+<>]", with: "", options: .regularExpression))")

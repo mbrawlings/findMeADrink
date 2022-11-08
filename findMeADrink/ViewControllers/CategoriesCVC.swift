@@ -77,15 +77,18 @@ class CategoriesCVC: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = UICollectionViewCell()
-        if let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CategoryCollectionCell {
-            
-            let category = categories[indexPath.row]
-            
-            categoryCell.category = category
-            
-            cell = categoryCell
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CategoryCollectionCell else { return UICollectionViewCell() }
+        
+        let category = categories[indexPath.row]
+        
+        cell.category = category
+        
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.shadowRadius = 5.0
+        cell.layer.shadowOpacity = 0.75
+        cell.layer.masksToBounds = false
+        
         return cell
     }
 }
