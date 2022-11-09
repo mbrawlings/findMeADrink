@@ -12,6 +12,7 @@ class DetailsVC: UIViewController {
     //MARK: - PROPERTIES
     var drinkID: String?
     var drinkName: String?
+    var favoriteHeart: String = "heart"
     var drinkDetails: [DrinkDetails.Drink] = []
     var ingredients: [String] = []
     var measurements: [String] = []
@@ -21,6 +22,8 @@ class DetailsVC: UIViewController {
     @IBOutlet weak var ingredientsTableView: UITableView!
     @IBOutlet weak var instructionsLabel: UITextView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var drinkImageViewContainer: UIView!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
@@ -34,7 +37,25 @@ class DetailsVC: UIViewController {
         ingredientsTableView.reloadData()
     }
     
-    //MARK: - HELPER METHODS
+    //MARK: - ACTION
+    @IBAction func favoriteButtonTapped(_ sender: UIBarButtonItem) {
+        if favoriteButton.image == UIImage(systemName: "heart") {
+            favoriteHeart = "heart.fill"
+            guard let drinkID,
+                  let drinkName
+            else { return }
+            FavoriteDrinkController.shared.newFavorite(drinkID: drinkID, drinkName: drinkName, favoriteHeart: favoriteHeart)
+            favoriteButton.image = UIImage(systemName: "heart.fill")
+        } else {
+            favoriteHeart = "heart"
+            guard let drinkID,
+                  let drinkName
+            else { return }
+            FavoriteDrinkController.shared.deleteFavorite(drinkID: drinkID, drinkName: drinkName)
+            favoriteButton.image = UIImage(systemName: "heart")
+        }
+    }
+    
     func fetchDetails() {
         guard let drinkID else { return }
         CocktailAPIController.fetchDetailsBy(id: drinkID) { result in
@@ -65,20 +86,44 @@ class DetailsVC: UIViewController {
                 self.instructionsLabel.text = details.instructions
                 
                 UIView.animate(withDuration: 0.4, animations: {
-                        self.spinner.alpha = 0.0
-                    }) { complete in
-                        self.spinner.stopAnimating()
-                    }
+                    self.spinner.alpha = 0.0
+                }) { complete in
+                    self.spinner.stopAnimating()
+                }
             }
         }
-        drinkImage.layer.borderWidth = 1
+        
+        guard let drinkID,
+              let drinkName
+        else { return }
+        
+        var thisDrink = FavoriteDrink(drinkID: drinkID, drinkName: drinkName, favoriteHeart: "")
+        
+        if FavoriteDrinkController.shared.favorites.contains(thisDrink) {
+            favoriteButton.image = UIImage(systemName: "heart.fill")
+            print("is a favorite")
+        } else {
+            print("NA or it's not a favorite")
+        }
+        
+        drinkImageViewContainer.layer.shadowColor = UIColor.black.cgColor
+        drinkImageViewContainer.layer.shadowOffset = CGSize(width: 0, height: 0)
+        drinkImageViewContainer.layer.shadowRadius = 5.0
+        drinkImageViewContainer.layer.shadowOpacity = 0.75
+        drinkImageViewContainer.layer.masksToBounds = false
+        drinkImageViewContainer.layer.cornerRadius = 10
+        
+        drinkImage.layer.masksToBounds = true
         drinkImage.layer.cornerRadius = 10
         
-        ingredientsTableView.layer.borderWidth = 1
+        ingredientsTableView.layer.borderWidth = 0.5
+        ingredientsTableView.layer.borderColor = UIColor.gray.cgColor
         ingredientsTableView.layer.cornerRadius = 10
-        
-        instructionsLabel.layer.borderWidth = 1
+                
+        instructionsLabel.layer.borderWidth = 0.5
+        instructionsLabel.layer.borderColor = UIColor.gray.cgColor
         instructionsLabel.layer.cornerRadius = 10
+        instructionsLabel.backgroundColor = UIColor.systemGray6
     }
     
     func organizeData() {
@@ -90,7 +135,13 @@ class DetailsVC: UIViewController {
     }
 }
 
+    //MARK: - TABLEVIEW
 extension DetailsVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        tableView.backgroundColor = UIColor.systemGray6
+        cell.backgroundColor = UIColor.systemGray6
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredients.count
     }
@@ -120,7 +171,7 @@ extension DetailsVC: UITableViewDelegate, UITableViewDataSource {
         
         content.text = ingredient
         content.secondaryText = String(measurement.filter { !"\n\t\r".contains($0) })
-        
+                
         cell.contentConfiguration = content
         
         return cell
