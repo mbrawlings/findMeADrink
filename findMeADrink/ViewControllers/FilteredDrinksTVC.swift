@@ -114,8 +114,15 @@ class FilteredDrinksTVC: UITableViewController {
             guard let indexPath = tableView.indexPathForSelectedRow,
                   let destination = segue.destination as? DetailsVC
             else { return }
-            let idToSend = filteredDrinks[indexPath.row].drinkID
-            let drinkNameToSend = filteredDrinks[indexPath.row].drinkName
+            let idToSend: String?
+            let drinkNameToSend: String?
+            if isSearching {
+                idToSend = searchedDrinks[indexPath.row].drinkID
+                drinkNameToSend = searchedDrinks[indexPath.row].drinkName
+            } else {
+                idToSend = filteredDrinks[indexPath.row].drinkID
+                drinkNameToSend = filteredDrinks[indexPath.row].drinkName
+            }
             destination.drinkID = idToSend
             destination.drinkName = drinkNameToSend
         }

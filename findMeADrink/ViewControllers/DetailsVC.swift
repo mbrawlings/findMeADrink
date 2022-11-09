@@ -76,7 +76,15 @@ class DetailsVC: UIViewController {
     
     func setupViews() {
         let details = drinkDetails[0]
-
+        // set favorite symbol
+        guard let drinkID,
+              let drinkName
+        else { return }
+        let thisDrink = FavoriteDrink(drinkID: drinkID, drinkName: drinkName, favoriteHeart: "")
+        if FavoriteDrinkController.shared.favorites.contains(thisDrink) {
+            favoriteButton.image = UIImage(systemName: "heart.fill")
+        }
+        // image url -> data -> UIImage
         let imageUrl = URL(string: details.thumbnailJpg ?? "")
         DispatchQueue.global().async {
         let imageData = try? Data(contentsOf: imageUrl!)
@@ -91,19 +99,6 @@ class DetailsVC: UIViewController {
                     self.spinner.stopAnimating()
                 }
             }
-        }
-        
-        guard let drinkID,
-              let drinkName
-        else { return }
-        
-        var thisDrink = FavoriteDrink(drinkID: drinkID, drinkName: drinkName, favoriteHeart: "")
-        
-        if FavoriteDrinkController.shared.favorites.contains(thisDrink) {
-            favoriteButton.image = UIImage(systemName: "heart.fill")
-            print("is a favorite")
-        } else {
-            print("NA or it's not a favorite")
         }
         
         drinkImageViewContainer.layer.shadowColor = UIColor.black.cgColor

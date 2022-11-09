@@ -158,8 +158,8 @@
             filePath = "findMeADrink/ViewControllers/FilteredDrinksTVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +174,8 @@
             filePath = "findMeADrink/ViewControllers/FilteredDrinksTVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +190,8 @@
             filePath = "findMeADrink/ViewControllers/FilteredDrinksTVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -232,7 +232,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             uuid = "77E25A36-5F12-42A1-B728-7C9655D9E0AA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             nameForDebugger = "WhereIAmBreaking"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -245,7 +245,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             uuid = "1AE61AB4-5EE8-47A3-9619-048BD2D5222E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             nameForDebugger = "collectionViewReuseIdentifier"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -360,8 +360,8 @@
             filePath = "findMeADrink/ViewControllers/DetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "setupViews()"
             landmarkType = "7">
          </BreakpointContent>
