@@ -104,7 +104,7 @@ extension CategoriesCVC: UICollectionViewDelegateFlowLayout {
         if let collection = self.collectionView {
             let width = (collection.bounds.width - totalSpacing)/numberOfItemsPerRow
             return CGSize(width: width, height: width)
-        }else{
+        } else {
             return CGSize(width: 0, height: 0)
         }
     }

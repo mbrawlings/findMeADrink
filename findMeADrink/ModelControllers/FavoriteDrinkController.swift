@@ -13,10 +13,6 @@ class FavoriteDrinkController {
     
     var favorites: [FavoriteDrink] = []
     
-//    private init(){
-//        loadFromPersistentStorage()
-//    }
-    
     // create new favorite
     func newFavorite(drinkID: String, drinkName: String, favoriteHeart: String) {
         let favorite = FavoriteDrink(drinkID: drinkID, drinkName: drinkName, favoriteHeart: favoriteHeart)
@@ -58,6 +54,4 @@ class FavoriteDrinkController {
             print("Error saving favorite drink \(error)")
         }
     }
-
-    
 }

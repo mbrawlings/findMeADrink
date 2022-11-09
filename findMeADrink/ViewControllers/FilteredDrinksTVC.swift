@@ -81,7 +81,6 @@ class FilteredDrinksTVC: UITableViewController {
         self.title = category
     }
     
-    
     // MARK: - TABLE VIEW DATA SOURCE
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
