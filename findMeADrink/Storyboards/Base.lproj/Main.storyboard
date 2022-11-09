@@ -250,7 +250,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IEm-cH-6qb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IEm-cH-6qb">
                                 <rect key="frame" x="19.666666666666657" y="243" width="351" height="551"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -283,25 +283,35 @@
                                     <outlet property="delegate" destination="OSG-Xf-ekc" id="Y1f-c9-FlK"/>
                                 </connections>
                             </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couldn't find that ingredient" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxA-fd-hGt">
+                                <rect key="frame" x="19.666666666666657" y="235" width="351" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wha-XT-cJk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fOt-a1-hEM" firstAttribute="top" secondItem="uXT-hJ-wIj" secondAttribute="bottom" constant="16" id="1sa-bm-yv9"/>
                             <constraint firstItem="uXT-hJ-wIj" firstAttribute="top" secondItem="Wha-XT-cJk" secondAttribute="top" constant="16" id="LED-bo-jH3"/>
+                            <constraint firstItem="KxA-fd-hGt" firstAttribute="top" secondItem="fOt-a1-hEM" secondAttribute="bottom" constant="8" id="ON9-BF-sBG"/>
                             <constraint firstItem="fOt-a1-hEM" firstAttribute="trailing" secondItem="Wha-XT-cJk" secondAttribute="trailing" id="Tlp-Dn-c8M"/>
                             <constraint firstItem="IEm-cH-6qb" firstAttribute="width" secondItem="hdC-OW-FVw" secondAttribute="width" multiplier="0.9" id="Zmj-Ep-cBe"/>
                             <constraint firstItem="fOt-a1-hEM" firstAttribute="leading" secondItem="Wha-XT-cJk" secondAttribute="leading" id="Zt0-O0-dCd"/>
                             <constraint firstItem="Wha-XT-cJk" firstAttribute="bottom" secondItem="IEm-cH-6qb" secondAttribute="bottom" constant="16" id="eXY-zn-YDX"/>
                             <constraint firstItem="IEm-cH-6qb" firstAttribute="centerX" secondItem="Wha-XT-cJk" secondAttribute="centerX" id="jh4-sL-W5B"/>
                             <constraint firstItem="uXT-hJ-wIj" firstAttribute="centerX" secondItem="Wha-XT-cJk" secondAttribute="centerX" id="kH0-RA-Hdf"/>
+                            <constraint firstItem="KxA-fd-hGt" firstAttribute="centerX" secondItem="Wha-XT-cJk" secondAttribute="centerX" id="lx2-tl-SO4"/>
                             <constraint firstItem="uXT-hJ-wIj" firstAttribute="width" secondItem="hdC-OW-FVw" secondAttribute="width" multiplier="0.9" id="oCw-mQ-oMh"/>
                             <constraint firstItem="IEm-cH-6qb" firstAttribute="top" secondItem="fOt-a1-hEM" secondAttribute="bottom" constant="16" id="yC3-zT-eEF"/>
+                            <constraint firstItem="KxA-fd-hGt" firstAttribute="width" secondItem="hdC-OW-FVw" secondAttribute="width" multiplier="0.9" id="zNn-Bz-IKE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="05w-tf-3Ez"/>
                     <connections>
                         <outlet property="searchBar" destination="fOt-a1-hEM" id="Jfu-mT-6aR"/>
+                        <outlet property="searchErrorLabel" destination="KxA-fd-hGt" id="NKW-CN-nGG"/>
                         <outlet property="tableView" destination="IEm-cH-6qb" id="OFe-7a-Z9H"/>
                     </connections>
                 </viewController>
@@ -456,7 +466,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Z0Q-BK-jwm"/>
+        <segue reference="eW4-ur-Ou2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>

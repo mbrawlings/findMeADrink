@@ -15,6 +15,7 @@ class SearchByIngredientVC: UIViewController {
     //MARK: - OUTLETS
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchErrorLabel: UILabel!
     
     //MARK: - LIFECYCLES
     override func viewDidLoad() {
@@ -22,6 +23,15 @@ class SearchByIngredientVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchErrorLabel.isHidden = true
+        let selectedRow: IndexPath? = tableView.indexPathForSelectedRow
+        if let selectedRowNotNil = selectedRow {
+            tableView.deselectRow(at: selectedRowNotNil, animated: true)
+        }
         searchBar.becomeFirstResponder()
     }
     
@@ -31,10 +41,14 @@ class SearchByIngredientVC: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let results):
+                    self.searchErrorLabel.isHidden = true
                     self.searchResults = results
                     self.tableView.reloadData()
                 case .failure(let error):
-                    print("Tell the user that their search was invalid")
+                    self.searchResults = []
+                    self.searchErrorLabel.isHidden = false
+                    self.tableView.reloadData()
+                    self.searchBar.becomeFirstResponder()
                     print(error)
                     print(error.localizedDescription)
                 }
