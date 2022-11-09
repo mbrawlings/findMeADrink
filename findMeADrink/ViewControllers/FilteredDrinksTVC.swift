@@ -37,6 +37,10 @@ class FilteredDrinksTVC: UITableViewController {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
     //MARK: - HELPER METHODS
     func fetchFilteredDrinks() {
@@ -125,6 +129,10 @@ class FilteredDrinksTVC: UITableViewController {
             }
             destination.drinkID = idToSend
             destination.drinkName = drinkNameToSend
+            
+            if searchBar.text == "" {
+                searchBar.resignFirstResponder()
+            }
         }
     }
 }
