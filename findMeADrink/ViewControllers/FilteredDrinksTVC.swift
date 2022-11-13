@@ -79,6 +79,7 @@ class FilteredDrinksTVC: UITableViewController {
     func setupView() {
         guard let category else { return }
         self.title = category
+        tableView.separatorStyle = .none
     }
     
     // MARK: - TABLE VIEW DATA SOURCE
@@ -91,7 +92,7 @@ class FilteredDrinksTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "drinkCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "drinkCell", for: indexPath) as? DrinksTVCell else { return UITableViewCell() }
         
         var drink: FilteredCategories.Drink?
         
@@ -101,14 +102,21 @@ class FilteredDrinksTVC: UITableViewController {
             drink = filteredDrinks[indexPath.row]
         }
         
-        var content = cell.defaultContentConfiguration()
+        cell.drinkName = drink?.drinkName
         
-        guard let drink else { return UITableViewCell() }
-        content.text = drink.drinkName
+//        var content = cell.defaultContentConfiguration()
+//
+//        guard let drink else { return UITableViewCell() }
+//        content.text = drink.drinkName
+//
+//        cell.contentConfiguration = content
         
-        cell.contentConfiguration = content
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
     }
 
     // MARK: - NAVIGATION

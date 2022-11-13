@@ -43,6 +43,7 @@ class SearchByIngredientVC: UIViewController {
                 case .success(let results):
                     self.searchErrorLabel.isHidden = true
                     self.searchResults = results
+                    self.tableView.separatorStyle = .none
                     self.tableView.reloadData()
                 case .failure(let error):
                     self.searchResults = []
@@ -78,19 +79,26 @@ extension SearchByIngredientVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as? IngredientSearchTVCell else { return UITableViewCell() }
         guard let searchResults else { return UITableViewCell() }
         let searchResult = searchResults[indexPath.row]
         
-        var content = cell.defaultContentConfiguration()
+//        var content = cell.defaultContentConfiguration()
+//
+//        content.text = searchResult.drinkName
+//
+//        cell.contentConfiguration = content
         
-        content.text = searchResult.drinkName
-        
-        cell.contentConfiguration = content
+        cell.drinkName = searchResult.drinkName
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
+    }
 }
+
 
     //MARK: - SEARCH BAR DELEGATE
 extension SearchByIngredientVC: UISearchBarDelegate {

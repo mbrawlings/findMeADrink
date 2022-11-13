@@ -21,6 +21,7 @@ class FavoritesTVC: UITableViewController {
         super.viewWillAppear(animated)
         FavoriteDrinkController.shared.loadFromPersistentStorage()
         favorites = FavoriteDrinkController.shared.favorites
+        tableView.separatorStyle = .none
         tableView.reloadData()
     }
 
@@ -30,19 +31,24 @@ class FavoritesTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as? FavoritesTVCell else { return UITableViewCell() }
 
         let favorite = favorites[indexPath.row]
         
-        var content = cell.defaultContentConfiguration()
+        cell.drinkName = favorite.drinkName
         
-        content.text = favorite.drinkName
-        
-        cell.contentConfiguration = content
+//        var content = cell.defaultContentConfiguration()
+//
+//        content.text = favorite.drinkName
+//
+//        cell.contentConfiguration = content
 
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
+    }
     
     // MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

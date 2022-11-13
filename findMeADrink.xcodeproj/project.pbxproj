@@ -13,6 +13,9 @@
 		0E57D479291B3E1F0026EEDA /* FavoriteDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57D478291B3E1F0026EEDA /* FavoriteDrink.swift */; };
 		0E57D47B291B3EC60026EEDA /* FavoriteDrinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57D47A291B3EC60026EEDA /* FavoriteDrinkController.swift */; };
 		0E57D47D291B46350026EEDA /* FavoritesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57D47C291B46350026EEDA /* FavoritesTVC.swift */; };
+		0E57D4BE2921A4000026EEDA /* DrinksTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57D4BD2921A4000026EEDA /* DrinksTVCell.swift */; };
+		0E57D4C02921A92B0026EEDA /* IngredientSearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57D4BF2921A92B0026EEDA /* IngredientSearchTVCell.swift */; };
+		0E57D4C22921A93B0026EEDA /* FavoritesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57D4C12921A93B0026EEDA /* FavoritesTVCell.swift */; };
 		0E6FC1B42912EAC400818747 /* FilteredDrinksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FC1B32912EAC400818747 /* FilteredDrinksTVC.swift */; };
 		0E6FC1B62912FC5C00818747 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FC1B52912FC5C00818747 /* DetailsVC.swift */; };
 		0ECE0A342911D9D800DDBE6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE0A332911D9D800DDBE6A /* AppDelegate.swift */; };
@@ -34,6 +37,9 @@
 		0E57D478291B3E1F0026EEDA /* FavoriteDrink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDrink.swift; sourceTree = "<group>"; };
 		0E57D47A291B3EC60026EEDA /* FavoriteDrinkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDrinkController.swift; sourceTree = "<group>"; };
 		0E57D47C291B46350026EEDA /* FavoritesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTVC.swift; sourceTree = "<group>"; };
+		0E57D4BD2921A4000026EEDA /* DrinksTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksTVCell.swift; sourceTree = "<group>"; };
+		0E57D4BF2921A92B0026EEDA /* IngredientSearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSearchTVCell.swift; sourceTree = "<group>"; };
+		0E57D4C12921A93B0026EEDA /* FavoritesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTVCell.swift; sourceTree = "<group>"; };
 		0E6FC1B32912EAC400818747 /* FilteredDrinksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredDrinksTVC.swift; sourceTree = "<group>"; };
 		0E6FC1B52912FC5C00818747 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		0ECE0A302911D9D700DDBE6A /* findMeADrink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = findMeADrink.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				0E129FD629186BEF00C3096C /* CategoryCollectionCell.swift */,
+				0E57D4BD2921A4000026EEDA /* DrinksTVCell.swift */,
+				0E57D4BF2921A92B0026EEDA /* IngredientSearchTVCell.swift */,
+				0E57D4C12921A93B0026EEDA /* FavoritesTVCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -229,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E57D4C02921A92B0026EEDA /* IngredientSearchTVCell.swift in Sources */,
 				0E129FD529186AE600C3096C /* CategoriesCVC.swift in Sources */,
 				0ECE0A4D2911DA8D00DDBE6A /* CocktailAPI.swift in Sources */,
 				0E6FC1B42912EAC400818747 /* FilteredDrinksTVC.swift in Sources */,
@@ -236,12 +246,14 @@
 				0E129FD729186BEF00C3096C /* CategoryCollectionCell.swift in Sources */,
 				0ECE0A4F2911DA9800DDBE6A /* CocktailAPIController.swift in Sources */,
 				0E57D479291B3E1F0026EEDA /* FavoriteDrink.swift in Sources */,
+				0E57D4C22921A93B0026EEDA /* FavoritesTVCell.swift in Sources */,
 				0E6FC1B62912FC5C00818747 /* DetailsVC.swift in Sources */,
 				0E129FD3291861CF00C3096C /* SearchByIngredientVC.swift in Sources */,
 				0E57D47D291B46350026EEDA /* FavoritesTVC.swift in Sources */,
 				0ECE0A362911D9D800DDBE6A /* SceneDelegate.swift in Sources */,
 				0E57D47B291B3EC60026EEDA /* FavoriteDrinkController.swift in Sources */,
 				0ECE0A522911DAAE00DDBE6A /* NetworkError.swift in Sources */,
+				0E57D4BE2921A4000026EEDA /* DrinksTVCell.swift in Sources */,
 				0ECE0A542911DBE500DDBE6A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
