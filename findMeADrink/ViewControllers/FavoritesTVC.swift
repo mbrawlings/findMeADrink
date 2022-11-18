@@ -36,12 +36,6 @@ class FavoritesTVC: UITableViewController {
         let favorite = favorites[indexPath.row]
         
         cell.drinkName = favorite.drinkName
-        
-//        var content = cell.defaultContentConfiguration()
-//
-//        content.text = favorite.drinkName
-//
-//        cell.contentConfiguration = content
 
         return cell
     }

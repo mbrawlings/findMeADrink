@@ -83,12 +83,6 @@ extension SearchByIngredientVC: UITableViewDelegate, UITableViewDataSource {
         guard let searchResults else { return UITableViewCell() }
         let searchResult = searchResults[indexPath.row]
         
-//        var content = cell.defaultContentConfiguration()
-//
-//        content.text = searchResult.drinkName
-//
-//        cell.contentConfiguration = content
-        
         cell.drinkName = searchResult.drinkName
         
         return cell

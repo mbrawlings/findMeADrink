@@ -104,14 +104,6 @@ class FilteredDrinksTVC: UITableViewController {
         
         cell.drinkName = drink?.drinkName
         
-//        var content = cell.defaultContentConfiguration()
-//
-//        guard let drink else { return UITableViewCell() }
-//        content.text = drink.drinkName
-//
-//        cell.contentConfiguration = content
-        
-        
         return cell
     }
     
