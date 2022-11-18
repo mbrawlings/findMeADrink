@@ -73,62 +73,6 @@
                                     <segue destination="ky2-yj-67H" kind="show" identifier="toFilteredDrinks" id="kgy-V7-ykW"/>
                                 </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GeQ-9V-psN">
-                                <rect key="frame" x="200" y="0.0" width="190" height="190"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dK3-pc-9KY">
-                                    <rect key="frame" x="0.0" y="0.0" width="190" height="190"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YIg-G4-Hom">
-                                <rect key="frame" x="0.0" y="200" width="190" height="190"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="geN-IF-sx9">
-                                    <rect key="frame" x="0.0" y="0.0" width="190" height="190"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NyS-5p-oIY">
-                                <rect key="frame" x="200" y="200" width="190" height="190"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jWO-ii-07q">
-                                    <rect key="frame" x="0.0" y="0.0" width="190" height="190"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q9C-HX-jjH">
-                                <rect key="frame" x="0.0" y="400" width="190" height="190"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Rch-bc-E4b">
-                                    <rect key="frame" x="0.0" y="0.0" width="190" height="190"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rQ3-El-rZl">
-                                <rect key="frame" x="200" y="400" width="190" height="190"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dfK-iK-Irh">
-                                    <rect key="frame" x="0.0" y="0.0" width="190" height="190"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0Gu-Dr-T9C">
-                                <rect key="frame" x="0.0" y="600" width="190" height="190"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gg7-xl-5XL">
-                                    <rect key="frame" x="0.0" y="0.0" width="190" height="190"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EQY-vq-MMh">
-                                <rect key="frame" x="200" y="600" width="190" height="190"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ql5-P4-w7c">
-                                    <rect key="frame" x="0.0" y="0.0" width="190" height="190"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="hC3-N3-DfW" id="MBe-Ub-1JK"/>
@@ -137,11 +81,13 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Categories" id="c9G-AC-BYL">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="heart.fill" catalog="system" id="Jbd-Tv-L1f">
+                            <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
                                 <segue destination="ZMC-Mo-OJW" kind="show" id="qwO-dd-e1A"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="kqE-1Y-r8v">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="OSG-Xf-ekc" kind="show" id="wRm-hn-amJ"/>
                             </connections>
@@ -493,6 +439,7 @@
                     <navigationItem key="navigationItem" id="eMj-6Q-i4n">
                         <barButtonItem key="rightBarButtonItem" id="mf1-J0-AWe">
                             <imageReference key="image" image="heart" catalog="system"/>
+                            <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
                                 <action selector="favoriteButtonTapped:" destination="nFz-HS-dSc" id="O2M-Fk-KOD"/>
                             </connections>
@@ -519,6 +466,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e0H-2O-ozL">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -531,7 +479,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eW4-ur-Ou2"/>
+        <segue reference="Z0Q-BK-jwm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
@@ -541,6 +489,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
