@@ -23,6 +23,7 @@ class SearchByIngredientVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        searchBar.becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +33,6 @@ class SearchByIngredientVC: UIViewController {
         if let selectedRowNotNil = selectedRow {
             tableView.deselectRow(at: selectedRowNotNil, animated: true)
         }
-        searchBar.becomeFirstResponder()
     }
     
     //MARK: - HELPER FUNCTIONS
